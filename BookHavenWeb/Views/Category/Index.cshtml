@@ -3,6 +3,12 @@
     ViewData["Title"] = "Index";
 }
 
+@{
+    ViewBag.DeleteSuccess = ViewBag.DeleteSuccess ?? false;
+    ViewBag.AddSuccess = ViewBag.AddSuccess ?? false;
+    ViewBag.UpdateSuccess = ViewBag.UpdateSuccess ?? false;
+}
+
 <h1>Index Category</h1>
 
 <div class="container p-3">
@@ -17,6 +23,25 @@
         </div>
     </div>
 
+    @if (TempData["DeleteMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["DeleteMessage"]
+        </div>
+    }
+    @if (TempData["AddMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["AddMessage"]
+        </div>
+    }
+    @if (TempData["UpdateMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["UpdateMessage"]
+        </div>
+    }
+
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -26,6 +51,7 @@
             <th>
                 Display Order
             </th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -44,6 +70,11 @@
                             <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id"><i class="bi bi-pencil-square"></i>Edit</a>
                    </div>
                </td>
+                <td>
+                    <div width="15%" class="btn-group" role"group">
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id"><i class="bi bi-trash"></i>Delete</a>
+                    </div>
+                </td>
            </tr>
         }
     </tbody>
