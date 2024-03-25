@@ -28,9 +28,20 @@ namespace BookHavenWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
         {
-            _db.Categories.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("CustomError", "The DisplayOrder cannot exactly match the Name.");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+
         }
     }
 }
