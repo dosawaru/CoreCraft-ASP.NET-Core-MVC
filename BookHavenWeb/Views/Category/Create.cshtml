@@ -6,17 +6,14 @@
             <h2 class="text-primary">Create Category</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-bg-danger px-2"></span>
         </div>
         <div class="mb-3">
             <label asp-for="DisplayOrder"></label>
             <input asp-for="DisplayOrder" class="form-control" />
-            <span asp-validation-for="DisplayOrder" class="text-bg-danger px-2"></span>
-
         </div>
         <button type="submit" class="btn btn-primary" style="width: 150px">Create</button>
         <a asp-controller="Category" asp-action="Index" class="btn btn-primary" style="width:160px">
@@ -25,8 +22,6 @@
     </div>
 </form>
 
-@SectionWriters Scripts{
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
+@{
+    <partial name="_ValidationScriptsPartial" />
 }
