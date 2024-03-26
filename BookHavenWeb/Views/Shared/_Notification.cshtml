@@ -1,0 +1,18 @@
+﻿@if (TempData["DeleteMessage"] != null)
+{
+    <div class="alert alert-success">
+        <i class="bi bi-check2"></i> @TempData["DeleteMessage"]
+    </div>
+}
+@if (TempData["AddMessage"] != null)
+{
+    <div class="alert alert-success">
+        <i class="bi bi-check2"></i> @TempData["AddMessage"]
+    </div>
+}
+@if (TempData["UpdateMessage"] != null)
+{
+    <div class="alert alert-success">
+        <i class="bi bi-check2"></i> @TempData["UpdateMessage"]
+    </div>
+}

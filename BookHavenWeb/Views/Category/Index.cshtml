@@ -3,12 +3,6 @@
     ViewData["Title"] = "Index";
 }
 
-@{
-    ViewBag.DeleteSuccess = ViewBag.DeleteSuccess ?? false;
-    ViewBag.AddSuccess = ViewBag.AddSuccess ?? false;
-    ViewBag.UpdateSuccess = ViewBag.UpdateSuccess ?? false;
-}
-
 <h1>Index Category</h1>
 
 <div class="container p-3">
@@ -22,25 +16,7 @@
             </a> 
         </div>
     </div>
-
-    @if (TempData["DeleteMessage"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["DeleteMessage"]
-        </div>
-    }
-    @if (TempData["AddMessage"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["AddMessage"]
-        </div>
-    }
-    @if (TempData["UpdateMessage"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["UpdateMessage"]
-        </div>
-    }
+    <partial name="_Notification"/>
 
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
