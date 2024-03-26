@@ -16,8 +16,6 @@
 
 # Mono auto generated files
 mono_crash.*
-/wwwroot/css/Theme.css
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

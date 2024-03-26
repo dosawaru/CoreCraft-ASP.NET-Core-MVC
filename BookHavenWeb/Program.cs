@@ -4,31 +4,30 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(); // Add services required for MVC controllers and views
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+    )); // Add Entity Framework Core DbContext with SQL Server as the database provider
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation(); // Add Razor Pages with runtime compilation
 
-var app = builder.Build();
+var app = builder.Build(); // Build the application
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseExceptionHandler("/Home/Error"); // Use custom error page for non-development environments
+    app.UseHsts(); // Use HTTP Strict Transport Security (HSTS) middleware
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseHttpsRedirection(); // Redirect HTTP requests to HTTPS
+app.UseStaticFiles(); // Enable serving static files
 
-app.UseRouting();
+app.UseRouting(); // Enable routing middleware
 
-app.UseAuthorization();
+app.UseAuthorization(); // Enable authorization middleware
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"); // Define default controller and action
 
-app.Run();
+app.Run(); // Start the application
