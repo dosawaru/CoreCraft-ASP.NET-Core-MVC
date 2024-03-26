@@ -11,12 +11,13 @@
             <h2 class="text-primary">Category List</h2>
         </div>
         <div class="col-6 text-end p-2">
+            <!-- Button to create a new category -->
             <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
                 <i class="bi bi-file-earmark-plus"></i> &nbsp; Create New Category
             </a> 
         </div>
     </div>
-    <partial name="_Notification"/>
+    <partial name="_Notification" />  <!-- Render partial view for notifications -->
 
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
@@ -32,21 +33,26 @@
         </tr>
     </thead>
     <tbody>
+        <!-- Loop through each Category object in the Model -->
         @foreach(var obj in Model)
         {
            <tr>
+               <!-- Display category name -->
                <td width="50%">
                    @obj.Name
                </td>
+                <!-- Display category display order -->
                 <td width="20%">
                    @obj.DisplayOrder
                </td>
                <td>
+                    <!-- Button to edit category -->
                    <div width="15%" class="btn-group" role"group">
                             <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id"><i class="bi bi-pencil-square"></i>Edit</a>
                    </div>
                </td>
                 <td>
+                    <!-- Button to delete category -->
                     <div width="15%" class="btn-group" role"group">
                             <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id"><i class="bi bi-trash"></i>Delete</a>
                     </div>

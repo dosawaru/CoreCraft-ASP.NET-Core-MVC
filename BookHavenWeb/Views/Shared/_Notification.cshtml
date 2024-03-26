@@ -1,17 +1,20 @@
 ﻿@if (TempData["DeleteMessage"] != null)
 {
+    <!-- Display success message for deletion -->
     <div class="alert alert-success">
         <i class="bi bi-check2"></i> @TempData["DeleteMessage"]
     </div>
 }
 @if (TempData["AddMessage"] != null)
 {
+    <!-- Display success message for addition -->
     <div class="alert alert-success">
         <i class="bi bi-check2"></i> @TempData["AddMessage"]
     </div>
 }
 @if (TempData["UpdateMessage"] != null)
 {
+    <!-- Display success message for update -->
     <div class="alert alert-success">
         <i class="bi bi-check2"></i> @TempData["UpdateMessage"]
     </div>

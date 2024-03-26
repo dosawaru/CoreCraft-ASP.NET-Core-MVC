@@ -6,16 +6,20 @@
             <h2 class="text-primary">Edit Category</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All" class="text-danger"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>  <!-- Validation summary for displaying error messages -->
+        <!-- Label and Inputfor category name -->
         <div class="mb-3">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control" />
         </div>
+        <!-- Label and Input for display order -->
         <div class="mb-3">
             <label asp-for="DisplayOrder"></label>
             <input asp-for="DisplayOrder" class="form-control" />
         </div>
+        <!-- Button to submit form for updating category -->
         <button type="submit" class="btn btn-primary" style="width: 150px">Update</button>
+        <!-- Button to navigate back to category list -->
         <a asp-controller="Category" asp-action="Index" class="btn btn-primary" style="width:160px">
             Back to List
         </a>
@@ -23,5 +27,5 @@
 </form>
 
 @{
-    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" /> <!-- Render partial view for validation scripts -->
 }   

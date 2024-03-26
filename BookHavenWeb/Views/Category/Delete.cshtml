@@ -6,6 +6,7 @@
             <h2 class="text-primary">Delete Category</h2>
             <hr />
         </div>
+        <!-- Fields disabled for deletion -->
         <div class="mb-3">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control" disabled />
@@ -14,7 +15,9 @@
             <label asp-for="DisplayOrder"></label>
             <input asp-for="DisplayOrder" class="form-control" disabled/>
         </div>
+        <!-- Button to submit form for deleting category -->
         <button type="submit" class="btn bg-danger text-white" style="width: 150px">Delete</button>
+        <!-- Button to navigate back to category list -->
         <a asp-controller="Category" asp-action="Index" class="btn btn-primary" style="width:160px">
             Back to List
         </a>
@@ -22,5 +25,5 @@
 </form>
 
 @{
-    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />  <!-- Render partial view for validation scripts -->
 }
