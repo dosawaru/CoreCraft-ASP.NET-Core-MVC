@@ -10,11 +10,13 @@
 *.userosscache
 *.sln.docstates
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
 # Mono auto generated files
 mono_crash.*
+/wwwroot/css/Theme.css
 
 # Build results
 [Dd]ebug/
